@@ -36,11 +36,11 @@ class SessionsController < ApplicationController
        @next = edit_user_path(user.id)
        @notice = "User created. Please confirm or edit details"
      end
-   session.clear
-   session[:email] = user.email
-   session[:name] = user.name
-   session[:user_id] = user.id
-   signup_url(user)
-   redirect_to @next, :notice => @notice
+     session.clear
+     session[:email] = user.email
+     session[:name] = user.name
+     session[:user_id] = user.id
+     signup_url(user)
+     redirect_to @next, :notice => @notice
    end
 end
