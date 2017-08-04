@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   has_secure_password :validations => false
   has_many :authentications, dependent: :destroy
+  has_many :recipes, dependent: :destroy
   validates :name, presence: true
   validates :email, presence: true
   validates :password, presence: true
