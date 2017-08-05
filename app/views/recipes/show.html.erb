@@ -1,4 +1,33 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_recipe_path(@recipe) %> |
-<%= link_to 'Back', recipes_path %>
+
+<table>
+  <thead>
+    <tr>
+      <th>title</th>
+      <th>description</th>
+      <th>Picture</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+      <tr>
+        <td><%= @recipe.title %></td>
+        <td><%= @recipe.description %></td>
+        <% if @recipe.pictures? %>
+        <td>
+          <%  @recipe.pictures.each do |x| %>
+          <%= image_tag x.normal %>
+          <% end %>
+          <% else %>
+          <td> no picture </td>
+          <% end %>
+      </tr>
+  </tbody>
+</table>
+
+<%= link_to 'Back To Recipe List', recipes_path %>
+<% if @recipe.user.id == current_user.id %>
+<%= link_to 'Edit', edit_recipe_path(@recipe) %>
+<% end %>
