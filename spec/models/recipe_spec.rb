@@ -2,6 +2,10 @@ RSpec.describe Recipe, type: :model do
   it { should belong_to(:user) }
  end
 
+ describe Recipe, 'validations' do
+   it { should validate_presence_of(:title) }
+   it { should validate_presence_of(:description) }
+ end
 
  describe Recipe, "search" do
    it "can search recipe" do
