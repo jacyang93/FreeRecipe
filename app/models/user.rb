@@ -6,6 +6,7 @@ class User < ApplicationRecord
   validates :email, presence: true
   validates :password, presence: true
   validates :email, uniqueness: true
+  enum access_level: [:user, :admin]
 
   def self.create_with_auth_and_hash(authentication, auth_hash)
     user = User.create!(name: auth_hash["extra"]["raw_info"]["name"], email: auth_hash["extra"]["raw_info"]["email"], password: SecureRandom.hex(10))
