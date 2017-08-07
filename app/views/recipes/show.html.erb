@@ -7,6 +7,7 @@
       <th>title</th>
       <th>description</th>
       <th>Picture</th>
+      <th>Created By</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -23,6 +24,7 @@
           <% else %>
           <td> no picture </td>
           <% end %>
+        <td><%= @recipe.user.name %></td>
       </tr>
   </tbody>
 </table>

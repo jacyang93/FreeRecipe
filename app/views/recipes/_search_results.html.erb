@@ -4,11 +4,13 @@
     <tr>
       <td><%= recipe.title %></td>
       <td><%= recipe.description %></td>
+
       <% if recipe.pictures? %>
       <td><%= image_tag recipe.pictures.first.thumb %>
         <% else %>
         <td> no picture </td>
         <% end %>
+      <td><%= recipe.user.name %></td>
         <td><%= link_to 'Show', recipe %></td>
         <% if current_user.id == recipe.user.id || current_user.admin? == true %>
 
